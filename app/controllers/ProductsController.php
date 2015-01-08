@@ -10,10 +10,12 @@ class ProductsController extends BaseController {
 
     public function index()
     {
-           $categories = array();
+        $categories = array();
+        
         foreach(Category::all() as $category) {
             $categories[$category->id] = $category->name;
         }
+
         return View::make('products.index')
             ->with('products', Product::all())
             ->with('categories', $categories);

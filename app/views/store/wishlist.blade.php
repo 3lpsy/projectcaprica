@@ -7,8 +7,8 @@
     <h1>Wish list</h1>
 <div>
     @foreach($products as $product)
-       @include('layouts.product')
-    @endforeach
+       @include('layouts.wishproduct')    
+        @endforeach
 </div>
 
 @stop

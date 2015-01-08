@@ -93,11 +93,16 @@ class StoreWishListController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($identifier)
+	public function destroy($id)
 	{
-		$item = Cart::item($identifier);
-        $item->remove();
-        return Redirect::to('store/cart');
+		$product = Wishlist::find($id);
+        	if ($product) {
+            $product->delete();
+            return Redirect::to('store/wishlist')
+            ->with('message', 'Product Deleted');
+        }
+        return Redirect::to('store/wishlist')
+        ->with('message', 'Something went wrong, not found in db');
 	}
 
 

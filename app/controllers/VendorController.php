@@ -2,15 +2,14 @@
 
 class VendorController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+	public function __construct() {
+        parent::__construct();
+        $this->beforeFilter('csrf', array('on' => 'post'));
+    }
 	public function index()
 	{
 		return View::make('vendor.index')
-		->with('products', Product::where('vendor_id', '=', Auth::id())->get());
+			->with('products', Product::where('vendor_id', '=', Auth::id())->get());
 	}
 
 
@@ -21,7 +20,7 @@ class VendorController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		
 	}
 
 
@@ -44,7 +43,8 @@ class VendorController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		// var_dump(Category::all()); die();
+		return View::make('vendor.newproduct');
 	}
 
 
@@ -56,7 +56,7 @@ class VendorController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		
 	}
 
 
@@ -80,7 +80,15 @@ class VendorController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$product = Product::find($id);
+        if ($product) {
+            File::delete('public/' . $product->image);
+            $product->delete();
+            return Redirect::to('admin/products')
+            ->with('message', 'Product Deleted');
+        }
+        return Redirect::to('admin/products')
+        ->with('message', 'Something went wrong, not found in db');
 	}
 
 

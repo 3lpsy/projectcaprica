@@ -99,6 +99,6 @@ Route::filter('csrf', function()
 Route::filter('catnav', function() 
 {
 
-				View::share('catnav', Category::all());
+		View::share('catnav', Category::all());
 
 });

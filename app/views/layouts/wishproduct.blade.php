@@ -1,4 +1,3 @@
-
 <div class="col-sm-4 product_div">
     <a href="/store/product/{{$product->id}}">
     {{ HTML::image($product->image, $product->title, array('class' => '', 'width'=>'240', 'height'=>'127'))}}
@@ -15,5 +14,7 @@
     </span>
     </h5>
     @include('layouts.add')
-   
+    {{Form::open(array('url'=>'store/wishlist/'.$product->id, 'method'=>'delete'))}}
+        {{Form::submit('X', array('class'=>'submit_wishlist_btn btn btn-danger'))}}
+        {{Form::close()}}
 </div>

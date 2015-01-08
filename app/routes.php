@@ -41,6 +41,7 @@ Route::post('/users/auth/signin', function (){
     ->with('message', 'Email/Password Invalid');
 });
 
+
 Route::get('signout', function (){
     Auth::logout();
     return Redirect::to('users/auth')

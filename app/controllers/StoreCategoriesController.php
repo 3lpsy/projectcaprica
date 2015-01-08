@@ -16,7 +16,7 @@ class StoreCategoriesController extends \BaseController {
 	{
 		return View::make('store.category')
             ->with('products', Product::where('category_id', '=', $cat_id)
-            ->paginate(2))
+            ->paginate(3))
             ->with('category', Category::find($cat_id));
 	}
 
@@ -51,9 +51,14 @@ class StoreCategoriesController extends \BaseController {
 	 */
 	public function show($cat_id)
 	{
+		if (Category::find($cat_id)->name == 'All') {
+			return View::make('store.category')
+            ->with('products', DB::table('products')->paginate(3))
+            ->with('category', Category::find($cat_id));
+		};
 		return View::make('store.category')
             ->with('products', Product::where('category_id', '=', $cat_id)
-            ->paginate(2))
+            ->paginate(3))
             ->with('category', Category::find($cat_id));
 	}
 

@@ -3,10 +3,6 @@
 @section('content')
 
     <div>
-        {{HTML::image($product->image, $product->title)}}
-    </div>
-
-    <div>
         <h1>{{$product->title}}</h1>
         <p>{{$product->description}}</p>
         <hr>

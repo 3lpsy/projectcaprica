@@ -18,7 +18,7 @@ class StoreProductsController extends \BaseController {
 	{
 		return View::make('store.category')
             ->with('products', Product::all()
-            ->paginate(6));
+            ->paginate(3));
 	}
 
 

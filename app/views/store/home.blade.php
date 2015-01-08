@@ -5,11 +5,11 @@
 @stop
 
 @section('content')
-    
-    <h2>New Products</h2>
-    <div>
-        @foreach($products as $product)
-            @include('layouts.product')
-        @endforeach
+    <div class="products_tile_div_home">
+        <h2>New Products</h2>
+
+        @for($i = 0; $i < count($products); $i++)
+            @include('layouts.homeproduct')
+        @endfor
     </div>
 @stop

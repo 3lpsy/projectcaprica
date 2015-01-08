@@ -1,9 +1,9 @@
-New Features:
+Functionality Needed:
 
-Order History
+XSS and CSRF,
 
-Promo Codes
+Not able to see or add own products. 
 
-Wish List
+Remove Wish List Items
 
-XSS and csrf
+Old items with no ID return errors

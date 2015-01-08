@@ -16,7 +16,7 @@ class StoreHomeController extends \BaseController {
 	public function index()
 	{
 		return View::make('store.home')
-        ->with('products', Product::take(4)->orderBy('created_at', 'DESC')->get());
+        ->with('products', Product::take(6)->orderBy('created_at', 'DESC')->get());
 	}
 
 

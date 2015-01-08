@@ -16,7 +16,7 @@
         @endif
         </div>
 
-        {{Form::open(array('url'=>'users/auth/signin', 'method'=>'post'))}}
+        {{Form::open(array('url'=>'users/auth', 'method'=>'post'))}}
         <p>
             {{Form::label('username')}}
             {{Form::text('username')}}

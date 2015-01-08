@@ -43,14 +43,13 @@ class UsersAuthController extends \BaseController {
             $user->password = Hash::make(Input::get('password'));
             $user->save();
 
-            return Redirect::to('auth/signin')
+            return Redirect::to('users/auth')
             ->with('message', 'Thank you for creating a new account. Please sign in.')
             ->with('email', $user->email)
             ->with('password', $user->password);
         }
 
         return Redirect::to('users/auth/create')
-            ->with('message', 'Something went wrong')
             ->withErrors($validator)
             ->withInput();
 	}

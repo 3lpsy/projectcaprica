@@ -11,3 +11,76 @@
     margin-left: 10px;
     margin-top: 12px;
 }
+
+content_body {
+    padding-left:100px;
+}
+
+.product_div {
+    margin-bottom:15px;
+}
+
+.products_tile_div_home
+{
+    margin-left:35px;
+}
+.products_tile_div_home>h2 {
+    position:relative;
+    right:5px;
+    margin-bottom:20px;
+}
+
+input.submit_cart_btn {
+    float:left; 
+    display:inline-block;
+    margin-left: 10px;
+}
+
+
+input.submit_wishlist_btn {
+    float:left;
+    display:inline-block;
+    margin-left: 20px;
+}
+
+
+.price {
+    font-weight: bold;
+    margin-left:170px;
+}
+
+.glyphicon>a {
+    font-family:sans-serif;
+
+}
+
+.pagination {
+
+}
+
+
+.cont_shopping {
+    font-size: 1em;
+    margin-left:30px;
+    }
+
+.subtotal_checkout {
+    margin-left:90px;
+}
+
+.subtotal_checkout>p>span {
+    font-weight:bold;
+}
+
+.vendor_listing_name {
+    text-decoration:underline;
+}
+
+.btn_add_listing {
+    margin-left: 10px;
+    margin-bottom:10px;
+}
+.remove_product_wish {
+    float:left;
+}
+
