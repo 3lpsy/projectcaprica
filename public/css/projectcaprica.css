@@ -1,0 +1,13 @@
+.navbar-nav>li>span {
+    margin-left: 10px;
+    margin-top: 15px;
+}
+.navbar-nav>li>span>a {
+    position:relative;
+    right:10px;
+}
+
+.navbar-nav>li>form {
+    margin-left: 10px;
+    margin-top: 12px;
+}
