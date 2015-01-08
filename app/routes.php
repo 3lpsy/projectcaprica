@@ -43,6 +43,7 @@ Route::post('/users/auth/signin', function (){
 
 
 Route::get('signout', function (){
+    Cart::destroy();
     Auth::logout();
     return Redirect::to('users/auth')
     ->with('message', 'Signed Out!');
@@ -90,3 +91,9 @@ Route::post('togglestock', function ()
         return Redirect::to('admin/products')->with('message', 'Product not found');
     } );
 
+Route::post('checkout/bitcoin', function () {
+    $total = Input::get('amount');
+    $address = Input::get('email');
+    $btctotal = file_get_contents('https://blockchain.info/tobtc?currency=USD&value='. $total);
+    echo '<p class="btc"> Please send '. $btctotal . ' btc to: <br> 19tAup3pjX9hBvvQtAaBTsdWdM9F7ft86B <br> <br> Or via coinbase to address: <br>'. $address. ' </p>';
+});

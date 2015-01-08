@@ -31,7 +31,7 @@ class VendorController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		
 	}
 
 
@@ -43,8 +43,9 @@ class VendorController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		// var_dump(Category::all()); die();
-		return View::make('vendor.newproduct');
+		return View::make('vendor.view')
+			->with('products', Product::where('vendor_id', '=', $id)->get())
+			->with('vendor_id', $id);
 	}
 
 
@@ -56,7 +57,8 @@ class VendorController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		
+		// var_dump(Category::all()); die();
+		return View::make('vendor.newproduct');
 	}
 
 

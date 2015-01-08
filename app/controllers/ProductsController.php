@@ -26,32 +26,32 @@ class ProductsController extends BaseController {
      *
      * @return Response
      */
-    public function postCreate()
-    {
-        $validator = Validator::make(Input::all(), Product::$rules);
+    // public function postCreate()
+    // {
+    //     $validator = Validator::make(Input::all(), Product::$rules);
 
-        if ($validator->passes()) {
-            $product = new Product;
-            $product->category_id = Input::get('category_id');
-            $product->title = Input::get('title');
-            $product->description = Input::get('description');
-            $product->price = Input::get('price');
-            $image = Input::file('image');
-            $filename = date('Y-m-d-H:i:s') . "-" . $image->getClientOriginalname();
-            $path = public_path('img/products/' . $filename);
-            Image::make($image->getRealPath())->resize(460, 249)->save($path);
-            $product->image = "img/products/" . $filename;
-            $product->save();
+    //     if ($validator->passes()) {
+    //         $product = new Product;
+    //         $product->category_id = Input::get('category_id');
+    //         $product->title = Input::get('title');
+    //         $product->description = Input::get('description');
+    //         $product->price = Input::get('price');
+    //         $image = Input::file('image');
+    //         $filename = date('Y-m-d-H:i:s') . "-" . $image->getClientOriginalname();
+    //         $path = public_path('img/products/' . $filename);
+    //         Image::make($image->getRealPath())->resize(460, 249)->save($path);
+    //         $product->image = "img/products/" . $filename;
+    //         $product->save();
 
-            return Redirect::to('admin/products')
-            ->with('message', 'Product Created');
-        }
+    //         return Redirect::to('admin/products')
+    //         ->with('message', 'Product Created');
+    //     }
 
-        return Redirect::to('admin/products')
-        ->with('message', 'Something went wrong')
-        ->withErrors($validator)
-        ->withInput();
-    }
+    //     return Redirect::to('admin/products')
+    //     ->with('message', 'Something went wrong')
+    //     ->withErrors($validator)
+    //     ->withInput();
+    // }
 
 
     /**

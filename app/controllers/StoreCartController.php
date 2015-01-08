@@ -41,7 +41,8 @@ class StoreCartController extends \BaseController {
             'price'=>$product->price,
             'image'=>$product->image,
             'quantity'=>$quantity,
-            'vendor_id'=>$product->vendor_id
+            'vendor_id'=>$product->vendor_id,
+            'user_id'=>Auth::id()
             ));
         return Redirect::to('store/cart');
 	}

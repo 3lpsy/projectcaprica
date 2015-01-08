@@ -1,9 +1,10 @@
+
 <div class="col-sm-4 product_div">
-    <a href="/store/product/{{$product->id}}">
+    <a href="/store/product/{{$product->product_id}}">
     {{ HTML::image($product->image, $product->title, array('class' => '', 'width'=>'240', 'height'=>'127'))}}
     </a>
     <h3>
-        <a href="/store/product{{$product->id}}">
+        <a href="/store/product/{{$product->product_id}}">
         {{$product->title}}
         </a>
     </h3>
@@ -13,7 +14,9 @@
         {{Availability::display($product->stock)}}
     </span>
     </h5>
-    @include('layouts.add')
+
+    @include('layouts.wishlistadd')
+
     {{Form::open(array('url'=>'store/wishlist/'.$product->id, 'method'=>'delete'))}}
         {{Form::submit('X', array('class'=>'submit_wishlist_btn btn btn-danger'))}}
         {{Form::close()}}

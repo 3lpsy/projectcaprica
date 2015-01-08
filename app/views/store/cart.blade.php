@@ -17,7 +17,17 @@
     {{Form::hidden('first_name', Auth::user()->username)}}
     {{Form::hidden('last_name', Auth::user()->username)}}
     {{Form::hidden('email', Auth::user()->email)}}
-    {{Form::submit('Checkout')}}
+    {{Form::submit('Checkout with Paypal', array('class'=>'btn btn-primary'))}}
+    {{Form::close()}}
+    {{Form::open(array('url'=>'checkout/bitcoin/', 'method'=>'post'))}}
+    {{Form::hidden('cmd', '_xclick')}}
+    {{Form::hidden('business', 'bussess@email.com')}}
+    {{Form::hidden('item_name', 'Project Caprica Purchas')}}
+    {{Form::hidden('amount', Cart::total())}}
+    {{Form::hidden('first_name', Auth::user()->username)}}
+    {{Form::hidden('last_name', Auth::user()->username)}}
+    {{Form::hidden('email', Auth::user()->email)}}
+    {{Form::submit('Checkout with Bitcoin', array('class'=>'btn btn-warning'))}}
     {{Form::close()}}
     </div>
 </div>

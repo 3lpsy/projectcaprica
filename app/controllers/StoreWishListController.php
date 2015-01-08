@@ -33,13 +33,27 @@ class StoreWishListController extends \BaseController {
 	 */
 	public function store()
 	{
-
 		$product = Product::find(Input::get('id'));
+		$users_wishlist = Wishlist::where('user_id', '=', Auth::id())->get();
+		$ids = array();
+		foreach($users_wishlist as $products_in_wishlist) {
+			$ids[] = $products_in_wishlist->product_id;
+
+		}
+		foreach($ids as $product_ids) {
+			if ($product_ids == $product->id) {
+				return Redirect::to('store/wishlist')
+				->with('message', $product->title . ' already exists in wishlist!');
+			}
+		}
+	
+
 		$wishlist_product = new Wishlist;
 		$wishlist_product->title = $product->title;
 		$wishlist_product->description = $product->description;
 		$wishlist_product->category_id = $product->category_id;
 		$wishlist_product->vendor_id = $product->vendor_id;
+		$wishlist_product->product_id = $product->id;
 		$wishlist_product->price = $product->price;
 		$wishlist_product->stock = $product->stock;
 		$wishlist_product->user_id = Auth::id();

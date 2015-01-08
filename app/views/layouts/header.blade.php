@@ -30,7 +30,7 @@
                     </li>
                      @else
                      <li>
-                        <span class="glyphicon glyphicon-user"> <a href="">{{Auth::user()->username}}</a></span>
+                        <span class="glyphicon glyphicon-user"> @if(Auth::user()->vendor_id) <a href={{"/vendor/products/". Auth::id()}}>{{Auth::user()->username}}</a>@else {{Auth::user()->username}}@endif</span>
                     </li>
                     <li>
                         <span class="glyphicon glyphicon-shopping-cart">
