@@ -34,14 +34,17 @@
 input.submit_cart_btn {
     float:left; 
     display:inline-block;
-    margin-left: 10px;
+    margin-left: 5px;
+}
+.btn {
+    margin-top: 5px;
 }
 
 
 input.submit_wishlist_btn {
     float:left;
     display:inline-block;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 
@@ -70,6 +73,8 @@ input.submit_wishlist_btn {
 
 .subtotal_checkout {
     margin-left:90px;
+    margin-right: 10%;
+    float:right;
 }
 
 .subtotal_checkout>p>span {

@@ -66,10 +66,20 @@ Route::post('addproduct', function (){
             $product->image = "img/products/" . $filename;
             $product->save();
 
+            if (Auth::user()->is_admin == 0) {
+                return Redirect::to('vendor/products/'.Auth::id().'/edit')
+                ->with('message', 'Product Created');
+            }
+
             return Redirect::to('admin/products')
             ->with('message', 'Product Created');
         }
-
+        if (Auth::user()->is_admin == 0) {
+            return Redirect::to('vendor/products/'.Auth::id().'/edit')
+            ->with('message', 'Something went wrong')
+            ->withErrors($validator)
+            ->withInput();
+        }
         return Redirect::to('admin/products')
         ->with('message', 'Something went wrong')
         ->withErrors($validator)

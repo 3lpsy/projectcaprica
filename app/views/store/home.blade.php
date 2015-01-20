@@ -7,7 +7,7 @@
 @section('content')
     <div class="products_tile_div_home">
         <h2>New Products</h2>
-
+        <?php $temp = true;?>
         @for($i = 0; $i < count($products); $i++)
             @include('layouts.homeproduct')
         @endfor

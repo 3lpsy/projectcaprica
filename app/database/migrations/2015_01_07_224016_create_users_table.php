@@ -21,6 +21,15 @@ class CreateUsersTable extends Migration {
 			$table->boolean('is_admin')->default(0);
 			$table->boolean('delivery_type')->default(0);
 			$table->text('description')->nullable();
+			$table->text('build')->nullable();
+			$table->text('brand')->nullable();
+			$table->integer('max_x')->nullable();
+			$table->integer('max_y')->nullable();
+			$table->integer('max_z')->nullable();
+			$table->boolean('1.75mmabs')->nullable();
+			$table->boolean('3mmabs')->nullable();
+			$table->boolean('1.75mmabs')->nullable();
+			$table->boolean('3mmabs')->nullable();
 			$table->string('city')->nullable();
 			$table->string('state')->nullable();
 			$table->string('country')->nullable();

@@ -3,7 +3,7 @@
 @section('search')
     <hr>
     <section>
-        <h1>Search Results for <span>{{$keyword}}</span></h1>
+        <h1>Search Results for "<span>{{$keyword}}</span>"</h1>
     </section>
 @stop
 

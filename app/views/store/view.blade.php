@@ -1,11 +1,9 @@
 @extends('layouts.main')
-
 @section('content')
-
-   <h2 class="cont_shopping">&larr; {{HTML::link('/', 'Featured')}}</h2>
+    <h2 class="cont_shopping">&larr; {{HTML::link('/', 'Featured')}}</h2>
     <div class="col-sm-4 product_div">
     <a href="/store/product/{{$product->id}}">
-    {{ HTML::image($product->image, $product->title, array('class' => '', 'width'=>'500'))}}
+        {{HTML::image($product->image, $product->title, array('class' => '', 'width'=>'500'))}}
     </a>
     <h3>
         <a href="/store/product/{{$product->id}}">
